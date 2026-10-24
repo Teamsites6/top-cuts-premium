@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   }
 
   const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const key = process.env.SUPABASE_PUBLISHABLE_KEY;
 
   if (!url || !key) {
     return res.status(500).json({ error: "Booking service is not configured" });
@@ -18,10 +18,10 @@ export default async function handler(req, res) {
     }
 
     const headers = {
-      "Content-Type": "application/json",
-      "apikey": key,
-      "Authorization": `Bearer ${key}`,
-      "Prefer": "return=minimal"
+  "Content-Type": "application/json",
+  "apikey": key,
+  "Prefer": "return=minimal"
+};
     };
 
     let table;
